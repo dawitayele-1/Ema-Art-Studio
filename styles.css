@@ -558,6 +558,10 @@
      font-size: 1.8rem;
  }
 
+ .hidden {
+     display: none;
+ }
+
  .info-card {
      background-color: var(--dark-gray);
      padding: 1.5rem;
