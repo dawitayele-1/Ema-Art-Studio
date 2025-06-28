@@ -29,6 +29,7 @@
      padding: 1rem 2rem;
      position: fixed;
      width: 100%;
+     top: 0;
      z-index: 1000;
      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
  }
@@ -77,9 +78,10 @@
      color: var(--white);
      font-size: 1.5rem;
      cursor: pointer;
+     z-index: 1001;
  }
 
- /* Mobile Menu Styles - UPDATED */
+ /* Mobile Styles */
  @media (max-width: 768px) {
      .nav-links {
          position: fixed;
@@ -91,7 +93,8 @@
          flex-direction: column;
          align-items: center;
          padding: 2rem 0;
-         transition: all 0.3s ease-out;
+         transition: left 0.3s ease-out;
+         display: flex;
          z-index: 999;
      }
 
@@ -101,21 +104,48 @@
 
      .nav-links li {
          margin: 1rem 0;
-         margin-left: 0;
+         width: 100%;
+         text-align: center;
+     }
+
+     .nav-links a {
+         padding: 1rem;
+         width: 100%;
+         display: block;
      }
 
      .mobile-menu-btn {
          display: block;
-         z-index: 1000;
      }
 
-     /* Hamburger icon animation */
      .mobile-menu-btn i {
          transition: transform 0.3s ease;
      }
 
-     .mobile-menu-btn.active i {
-         transform: rotate(90deg);
+     .mobile-menu-btn.active i.fa-bars::before {
+         content: "\f00d";
+         /* Unicode for Font Awesome "X" icon */
+         font-family: "Font Awesome 6 Free";
+         font-weight: 900;
+     }
+ }
+
+ /* Desktop Styles */
+ @media (min-width: 769px) {
+     .mobile-menu-btn {
+         display: none;
+     }
+
+     .nav-links {
+         display: flex !important;
+         position: static;
+         width: auto;
+         height: auto;
+         background-color: transparent;
+         flex-direction: row;
+         align-items: center;
+         padding: 0;
+         left: auto;
      }
  }
 

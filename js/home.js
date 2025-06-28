@@ -1,22 +1,35 @@
-// Mobile Menu Toggle - FIXED VERSION
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navLinks = document.getElementById('navLinks'); // Changed to ID selector
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active'); // For icon animation
-    });
-
-    // Close menu when clicking on links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
             document.body.classList.toggle('menu-open');
         });
-    });
-}
+
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (
+                !navLinks.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)
+            ) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+});
+
 // Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
