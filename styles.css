@@ -462,6 +462,35 @@
      color: var(--gold);
  }
 
+
+
+ .contact-link {
+     color: var(--white);
+     text-decoration: none;
+     transition: color 0.3s ease;
+     margin-left: 8px;
+ }
+
+ .contact-link:hover {
+     color: var(--gold);
+     text-decoration: underline;
+ }
+
+ .contact-info i {
+     color: var(--gold);
+     width: 20px;
+     /* Ensures icons align properly */
+     text-align: center;
+ }
+
+
+
+
+
+
+
+
+
  .social-links {
      display: flex;
      gap: 1rem;
