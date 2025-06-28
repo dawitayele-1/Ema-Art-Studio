@@ -197,9 +197,10 @@
 
     <!-- Booking Section -->
     <h2 id="booking-form" class="section-title">Book Your Session</h2>
-    <form name="booking" method="POST" netlify netlify-honeypot="bot-field" class="booking-form">
+    <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="booking-form"
+        onsubmit="return validateForm()">
+        <input type="hidden" name="form-name" value="booking">
 
-        <!-- Honeypot field for spam prevention -->
         <div class="hidden">
             <label>Leave this blank if you're human: <input name="bot-field"></label>
         </div>
